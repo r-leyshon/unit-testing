@@ -1,3 +1,5 @@
 pytest
 numpy
 ipykernel
+pytest-mpl
+matplotlib
