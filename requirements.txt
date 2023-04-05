@@ -2,4 +2,5 @@ pytest
 numpy
 ipykernel
 pytest-mpl
+pytest-mock
 matplotlib
