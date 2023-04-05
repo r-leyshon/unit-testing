@@ -1,6 +1,8 @@
+from unittest.mock import call
+
 import pytest
 
-from src.advance.course_funcs_3 import (goodie)
+from src.advance.course_funcs_3 import (goodie, cap_abc)
 
 
 class TestGoodie(object):
@@ -22,3 +24,18 @@ class TestGoodie(object):
         expected = ['spiderman']
         found = goodie(super_file)
         assert found == expected
+
+
+class TestCapAbc(object):
+    # uses the pytest mocker fixture
+    def test_cap_abc(self, mocker):
+        # don't forget to give the full relative pth to the dep being mocked
+        cap_a_mock = mocker.patch(
+            "src.advance.course_funcs_3.cap_a",
+            return_value="Abc, it's eAsy As one, two, three."
+            )
+        # now use the code that would call the mock target
+        result = cap_abc()
+        # now go on to test as usual
+        assert result == "ABC, it's eAsy As one, two, three.",\
+        f"Expected A,B & C to be capitalised.\nInstead got {result}"
