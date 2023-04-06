@@ -2,7 +2,7 @@ from unittest.mock import call
 
 import pytest
 
-from src.advance.course_funcs_3 import (goodie, cap_abc)
+from src.advance.course_funcs_3 import (goodie, cap_abc, fruity_bars)
 
 
 class TestGoodie(object):
@@ -39,3 +39,9 @@ class TestCapAbc(object):
         # now go on to test as usual
         assert result == "ABC, it's eAsy As one, two, three.",\
         f"Expected A,B & C to be capitalised.\nInstead got {result}"
+
+
+class TestFruityBars(object):
+    @pytest.mark.mpl_image_compare # This will handle the image baseline and comparison
+    def test_fruity_bars(self):
+        return fruity_bars()
